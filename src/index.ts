@@ -1,6 +1,2 @@
-/**
- * The Xi main class.
- */
-export default class Xi {
-
-}
+import Xi from "api/Xi";
+export default Xi;
