@@ -1,0 +1,15 @@
+{
+  "compilerOptions": {
+    "target": "esnext",
+    "moduleResolution": "classic",
+    "jsx": "react-native",
+    "outDir": "build",
+    "rootDir": "src",
+    "baseUrl": "./src",
+    "paths": {
+      "~components/*" : ["./components/*"],
+      "~images/*" : ["./images/*"]
+    }
+  },
+  "exclude": ["node_modules"]
+}

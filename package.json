@@ -1,0 +1,15 @@
+{
+  "name": "xijs",
+  "version": "0.0.1",
+  "description": "A module for managing the Xi editor process, communication with it and the line cache.",
+  "main": "index.js",
+  "author": "Daniel Gulyas <hello@danielgulyas.me>",
+  "license": "AGPLv3",
+  "scripts": {
+    "lint": "tslint -c tslint.json ./src/* ./test/*"
+  },
+  "devDependencies": {
+    "tslint": "^5.9.1",
+    "typescript": "^2.7.2"
+  }
+}
