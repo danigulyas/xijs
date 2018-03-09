@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "outFile": "./build/js/index.js",
+    "outDir": "./build/js/index.js",
     "downlevelIteration": true,
     "sourceMap": true,
     "target": "esnext",
