@@ -1,15 +1,23 @@
 {
   "compilerOptions": {
+    "outFile": "./build/js/index.js",
+    "downlevelIteration": true,
+    "sourceMap": true,
     "target": "esnext",
-    "moduleResolution": "classic",
-    "jsx": "react-native",
-    "outDir": "build",
-    "rootDir": "src",
-    "baseUrl": "./src",
+    "pretty": true,
+    
+    "noUnusedParameters": true,
+    "noImplicitReturns": true,
+    "noUnusedLocals": true,
+    "alwaysStrict": true,
+    "declaration": true,
+    "strict": true,
+
+    "baseUrl": "./src/",
     "paths": {
-      "~components/*" : ["./components/*"],
-      "~images/*" : ["./images/*"]
+      "*": ["*"]
     }
   },
+  "include": ["./src/**/*"],
   "exclude": ["node_modules"]
 }
