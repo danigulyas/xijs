@@ -2,7 +2,7 @@ import { assertEqual, assertType, assertTypeIfPresent } from "~/util/ValidatorUt
 import XiEvent from "~/core/message/XiEvent";
 import Style from "~/Style";
 
-class SetStyleEvent implements XiEvent {
+class DefStyleEvent implements XiEvent {
   public readonly style: Style;
 
   /**
@@ -15,16 +15,16 @@ class SetStyleEvent implements XiEvent {
   }
 }
 
-namespace SetStyleEvent {
-  export const METHOD = "set_style";
+namespace DefStyleEvent {
+  export const METHOD = "def_style";
 
   /**
    * Tries to instantiate itself from an object.
    * @throws if can't find necessary fields.
    * @return an instance of this.
    */
-  export function from(obj: object) : SetStyleEvent {
-    assertEqual(obj, "method", SetStyleEvent.METHOD);
+  export function from(obj: object) : DefStyleEvent {
+    assertEqual(obj, "method", DefStyleEvent.METHOD);
     
     const style: Style = {
       id: assertType(obj, "params.id", "number"),
@@ -35,8 +35,8 @@ namespace SetStyleEvent {
       underline: assertTypeIfPresent(obj, "params.underline", "boolean")
     };
 
-    return new SetStyleEvent(style);
+    return new DefStyleEvent(style);
   }
 }
 
-export default SetStyleEvent;
+export default DefStyleEvent;

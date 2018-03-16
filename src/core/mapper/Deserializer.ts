@@ -3,7 +3,7 @@ import XiEvent from "~/core/message/XiEvent";
 import AvailablePluginsEvent from "~/core/message/event/AvailablePluginsEvent";
 import AvailableThemesEvent from "~/core/message/event/AvailableThemesEvent";
 import PluginStartedEvent from "~/core/message/event/PluginStartedEvent";
-import SetStyleEvent from "~/core/message/event/SetStyleEvent";
+import DefStyleEvent from "~/core/message/event/DefStyleEvent";
 import ScrollToEvent from "~/core/message/event/ScrollToEvent";
 import XiResponse from "~/core/message/XiResponse";
 
@@ -32,7 +32,7 @@ export default abstract class Deserializer {
       case AvailablePluginsEvent.METHOD: return AvailablePluginsEvent.from(obj);
       case AvailableThemesEvent.METHOD: return AvailableThemesEvent.from(obj);
       case PluginStartedEvent.METHOD: return PluginStartedEvent.from(obj);
-      case SetStyleEvent.METHOD: return SetStyleEvent.from(obj);
+      case DefStyleEvent.METHOD: return DefStyleEvent.from(obj);
       case ScrollToEvent.METHOD: return ScrollToEvent.from(obj);
       default: throw new Error(`Method name '${method}' is not recognized.`);
     }
