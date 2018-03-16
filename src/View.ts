@@ -1,5 +1,5 @@
-import Line from "Line";
-import Style from "Style";
+import Line from "~/Line";
+import Style from "~/Style";
 
 /**
  * The View represents a document ("an open tab") in Xi, it's the main point of interaction.

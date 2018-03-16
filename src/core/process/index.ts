@@ -1,5 +1,6 @@
-import XiProcessConfiguration from "configuration/XiProcessConfiguration";
-import { Subject, Observable } from "rxjs";
+import { Observable } from "rxjs/Observable";
+import XiProcessConfiguration from "~/configuration/XiProcessConfiguration";
+import Sendable from "~/core/message/Sendable";
 
 /** 
  * Responsible for starting, stopping and extracting input / output from the Xi process. 

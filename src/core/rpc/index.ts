@@ -1,4 +1,4 @@
-export default interface RPCEventListener {
+export default interface XiRPC {
   /** 
    * Returns the next request id.
    */

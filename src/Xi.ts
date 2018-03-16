@@ -1,4 +1,4 @@
-import View from "View";
+import View from "~/View";
 
 /**
  * The main class for interacting with Xi.js.

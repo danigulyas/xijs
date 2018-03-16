@@ -1,8 +1,8 @@
-import BaseRequest from "core/request/BaseRequest";
+import XiRequest from "~/core/message/XiRequest";
 
 export type NewViewRequestParams = { file_path?: string };
 
-export default class NewViewRequest extends BaseRequest {
+export default class NewViewRequest extends XiRequest {
   public readonly params: NewViewRequestParams;
 
   constructor(requestId: number, params: NewViewRequestParams = {}) {

@@ -5,7 +5,7 @@ import LoggerUtils from "./LoggerUtils";
  * A set of utilities for validating objects at runtime.
  */
 
-const log = LoggerUtils.getLogger("util/ValidatorUtils");
+const log = LoggerUtils.getLogger("~/util/ValidatorUtils");
 
 /**
  * @throws if the path is unresolvable.

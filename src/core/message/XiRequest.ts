@@ -1,6 +1,9 @@
-import Sendable from "core/Sendable";
+import Sendable from "~/core/message/Sendable";
 
-export default abstract class BaseRequest implements Sendable { 
+/**
+ * Request from Xi.
+ */
+export default abstract class XiRequest implements Sendable { 
   public readonly id: number;
   public readonly method: string;
   public abstract readonly params: object;
