@@ -11,19 +11,19 @@ export default interface Line {
   /**
    * A set of UTF-16 code point offsets in `text`, representing cursor locations.
    */
-  readonly cursors: Array<number>;
+  readonly cursors: number[];
 
   /**
    * A set of UTF-16 code point ranges in `text`, representing styling information.
-   * @see Style 
+   * @see Style
    * @see View#getStyle
    */
-  readonly styles: Array<StyleSpan>;
+  readonly styles: StyleSpan[];
 
   /**
    * @return true if there's at least one cursor in this line.
    */
-  hasCursor() : boolean;
+  hasCursor(): boolean;
 }
 
 /**

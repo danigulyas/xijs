@@ -19,7 +19,7 @@ export default interface Style {
   readonly backgroundColor?: number;
 
   /**
-   * Font weight. 
+   * Font weight.
    * The default value is 400.
    */
   readonly weight?: number;
