@@ -1,12 +1,14 @@
 import XiRequest from "~/core/message/XiRequest";
 
-export type NewViewRequestParams = { file_path?: string };
-
 export default class NewViewRequest extends XiRequest {
-  public readonly params: NewViewRequestParams;
+  public readonly filePath?: string;
 
-  constructor(requestId: number, params: NewViewRequestParams = {}) {
+  constructor(requestId: number, filePath?: string) {
     super(requestId, "new_view");
-    this.params = params;
+    this.filePath = filePath;
+  }
+
+  public serialize() : string { 
+    return `${JSON.stringify({ id: this.id, method: this.method, params: { file_path: this.filePath } })}\r\n`; 
   }
 }

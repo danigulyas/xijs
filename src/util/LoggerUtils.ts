@@ -9,6 +9,6 @@ export default abstract class LoggerUtils {
    * @param name of the logger.
    */
   public static getLogger(name: string) : Pino.Logger  {
-    return Pino({ name, level: "trace" }, FORMATTER);
+    return Pino({ name, level: process.env["XIJS_LOGLEVEL"] || "trace" }, FORMATTER);
   }
 }

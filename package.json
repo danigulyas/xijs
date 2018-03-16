@@ -8,7 +8,7 @@
   "scripts": {
     "postinstall": "yarn run build-xi",
     "lint": "tslint -c tslint.json ./src/* ./test/*",
-    "test": "jest",
+    "test": "XIJS_LOGLEVEL=\"warn\" jest",
     "build": "yarn build-xi && yarn build-src && yarn build-docs",
     "build-xi": "bash ./postinstall.sh",
     "build-src": "tsc",
