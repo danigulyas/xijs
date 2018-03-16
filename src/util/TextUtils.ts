@@ -30,7 +30,7 @@ export default abstract class TextUtils {
    * @param offset is the offset in UTF-8 code points.
    */
   public static convertCodePointOffsetToUTF16(str: string, offset: number) : number {
-    return this.decoder.decode(this.encoder.encode(str).subarray(offset)).length;
+    return this.decoder.decode(this.encoder.encode(str).slice(0, offset)).length;
   }
 
   /**

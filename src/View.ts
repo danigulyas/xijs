@@ -1,5 +1,5 @@
-import Style from "api/Style";
-import Line from "api/Line";
+import Line from "Line";
+import Style from "Style";
 
 /**
  * The View represents a document ("an open tab") in Xi, it's the main point of interaction.
@@ -84,6 +84,43 @@ export default interface View {
    * @param type is the type of the gesture.
    */
   gesture(line: number, column: number, type: GestureType) : void;
+
+  /**
+   * Subscribes to given events, see specifics below.
+   * @param event is the event you're interested in.
+   * @param callback is the function which will be called once this event occurs.
+   */
+  subscribe(event: ViewEvent, callback: () => void) : void;
+
+  /**
+   * Saves the file to the given path.
+   * @param path of the file to save to (obtainable by getConfig()).
+   */
+  save(path: string) : void;
+
+  /**
+   * Subscribes to scroll requests from Xi to the front-end, this can happen for example when the front-end
+   * sends the signal that the user is selecting something with shift and moved down with the arrow keys,
+   * Xi knows if it's already at the bottom of the page and will request a scroll.
+   * 
+   * In this case, the callback will be called with an object representing the zero-based line index and
+   * the UTF-16 code point offset.
+   */
+  subscribe(event: ViewEvent.SCROLL_REQUESTED, callback: (arg: { line: number, column: number }) => void) : void;
+
+  /**
+   * Subscribes to the updat event, where the document was changed and updates to the line cache was processed,
+   * makes a good subscription for pushing tasks into the render queue.
+   */
+  subscribe(event: ViewEvent.LINES_UPDATED, callback: () => void) : void;
+}
+
+/**
+ * Represents requests from Xi to the front-end.
+ */
+export enum ViewEvent {
+  SCROLL_REQUESTED,
+  LINES_UPDATED
 }
 
 /**
@@ -91,23 +128,23 @@ export default interface View {
  * @see https://github.com/google/xi-editor/blob/master/docs/docs/frontend-protocol.md#edit-namespace
  */
 export enum EditEvent {
-  DeleteBackward = "delete_backward",
-  DeleteForward = "delete_forward",
-  InsertNewline = "insert_newline",
-  MoveUp = "move_up",
-  MoveUpAndModifySelection = "move_up_and_modify_selection",
-  MoveDown = "move_down",
-  MoveDownAndModifySelection = "move_down_and_modify_selection",
-  MoveLeft = "move_left",
-  MoveLeftAndModifySelection = "move_left_and_modify_selection",
-  MoveRight = "move_right",
-  MoveRightAndModifySelection = "move_right_and_modify_selection",
-  ScrollPageUp = "scroll_page_up",
-  PageUp = "page_up",
-  PageUpAndModifySelection = "page_up_and_modify_selection",
-  ScrollPageDown = "scroll_page_down",
-  PageDown = "page_down",
-  PageDownAndModifySelection = "page_down_and_modify_selection"
+  DELETE_BACKWARD = "delete_backward",
+  DELETE_FORWARD = "delete_forward",
+  INSERT_NEWLINE = "insert_newline",
+  MOVE_UP = "move_up",
+  MOVE_UP_AND_MODIFY_SELECTION = "move_up_and_modify_selection",
+  MOVE_DOWN = "move_down",
+  MOVE_DOWN_AND_MODIFY_SELECTION = "move_down_and_modify_selection",
+  MOVE_LEFT = "move_left",
+  MOVE_LEFT_AND_MODIFY_SELECTION = "move_left_and_modify_selection",
+  MOVE_RIGHT = "move_right",
+  MOVE_RIGHT_AND_MODIFY_SELECTION = "move_right_and_modify_selection",
+  SCROLL_PAGE_UP = "scroll_page_up",
+  PAGE_UP = "page_up",
+  PAGE_UP_AND_MODIFY_SELECTION = "page_up_and_modify_selection",
+  SCROLL_PAGE_DOWN = "scroll_page_down",
+  PAGE_DOWN = "page_down",
+  PAGE_DOWN_AND_MODIFY_SELECTION = "page_down_and_modify_selection"
 }
 
 export enum GestureType {

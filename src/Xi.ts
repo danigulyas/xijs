@@ -1,4 +1,4 @@
-import View from "api/View";
+import View from "View";
 
 /**
  * The main class for interacting with Xi.js.
@@ -6,8 +6,9 @@ import View from "api/View";
 export default interface Xi {
   /**
    * Starts the Xi process and the plugins.
+   * @param clientExtrasPath is the path where the plugins reside, if not set defaults to the directory of the prebuilt Xi binary.
    */
-  start() : void;
+  start(clientExtrasPath?: string) : void;
 
   /**
    * Stops the Xi process.
@@ -22,4 +23,11 @@ export default interface Xi {
    * @return a promise to a view.
    */
   createView(path?: string) : Promise<View>;
+
+  /**
+   * Closes the view at Xi, you can't use the view afterwards.
+   * 
+   * @param view to be closed.
+   */
+  closeView(view: View) : void;
 }

@@ -38,10 +38,10 @@ export interface StyleSpan {
   /**
    * The start of the style in UTF-16 code points.
    */
-  readonly lowerCodePointOffset: number;
+  readonly startOffset: number;
 
   /**
    * The point until the style should be applied in UTF-16 code points.
    */
-  readonly upperCodePointOffset: number;
+  readonly endOffset: number;
 }
