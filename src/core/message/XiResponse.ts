@@ -9,7 +9,7 @@ export default class XiResponse {
    * @param id of the request.
    * @param result of the request.
    */
-  private constructor(id: number, result: any) {
+  public constructor(id: number, result: any) {
     this.id = id;
     this.result = result;
   }
